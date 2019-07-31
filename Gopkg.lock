@@ -289,7 +289,7 @@
 [[projects]]
   branch = "master"
   digest = "1:38827b18f24d6f122793675db5f58a11eaf1791f7eb7cef7d7c2601b9ca38bdb"
-  name = "github.com/devopsfaith/krakend"
+  name = "github.com/rwarut/krakend"
   packages = [
     "config",
     "core",
