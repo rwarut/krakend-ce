@@ -21,7 +21,7 @@ DOCKER_WDIR := /tmp/fpm
 DOCKER_FPM := devopsfaith/fpm
 DOCKER_DEP := instrumentisto/dep:0.5.0-alpine
 GOLANG_VERSION := 1.12
-GOBASEDIR=src/github.com/devopsfaith/krakend-ce
+GOBASEDIR=src/github.com/rwarut/krakend-ce
 
 FPM_OPTS=-s dir -v $(VERSION) -n $(PKGNAME) \
   --license "$(LICENSE)" \
@@ -65,7 +65,7 @@ deps:
 
 build:
 	@echo "Building the binary..."
-	@go build -ldflags="-X github.com/devopsfaith/krakend-ce/vendor/github.com/devopsfaith/krakend/core.KrakendVersion=${VERSION}" -o ${BIN_NAME} ./cmd/krakend-ce
+	@go build -ldflags="-X github.com/rwarut/krakend-ce/vendor/github.com/rwarut/krakend/core.KrakendVersion=${VERSION}" -o ${BIN_NAME} ./cmd/krakend-ce
 	@echo "You can now use ./${BIN_NAME}"
 
 test: build
@@ -82,7 +82,7 @@ docker_build_alpine:
 
 krakend_docker:
 	@echo "You need to compile krakend using 'make docker_build_alpine' to build this container."
-	docker build -t devopsfaith/krakend:${VERSION} .
+	docker build -t rwarut/krakend:${VERSION} .
 
 tgz: builder/skel/tgz/usr/bin/krakend
 tgz: builder/skel/tgz/etc/krakend/krakend.json
